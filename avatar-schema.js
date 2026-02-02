@@ -662,6 +662,41 @@ TONE:
 }
 
 /**
+ * Build the prompt for "Your Signal" - personalized identity paragraph
+ * Combines archetype identity + strength + element + Q3 context
+ */
+function buildSignalPrompt(persona, archetype, element, userProblem = '') {
+  const archetypeContent = AVATAR_SCHEMA.archetypeContent[archetype];
+  const elementStyle = AVATAR_SCHEMA.elementStyle[element];
+  const personaContext = AVATAR_SCHEMA.personaContext[persona];
+
+  return `You are writing a personal insight for someone who just discovered their AI Archetype.
+
+THEIR ARCHETYPE: "${archetype}"
+ARCHETYPE MEANING: "${archetypeContent.identity}"
+THEIR STRENGTH: "${archetypeContent.strength}"
+THEIR ROLE: "${personaContext.role}"
+ELEMENT: ${element} (${elementStyle.mood})
+${userProblem ? `CONTEXT FROM THEIR WORLD: "${userProblem}"` : ''}
+
+Write 4-5 sentences that tell them WHO THEY ARE. This is about their identity, not their to-do list.
+
+STRUCTURE:
+- Sentence 1-2: What makes them this archetype (use their context to ground it if provided, don't dwell on it)
+- Sentence 3: How their element energy shapes how they move
+- Sentence 4-5: What this means for how they'll engage with AI (identity, not instructions)
+
+TONE:
+- Second person ("You...")
+- Confident, like you've seen this pattern before
+- Slightly poetic but grounded
+- NO action items, NO "you should", NO advice
+- This is a mirror, not a manual
+
+MAX: 110 words`;
+}
+
+/**
  * Build the Gemini image generation prompt for avatar badge
  */
 function buildImagePrompt(persona, archetype, element) {
@@ -747,17 +782,19 @@ function generateAvatarOutput(persona, style, posture, element, answers = {}, us
   // Step 5: Build prompt for image generation
   const imagePrompt = buildImagePrompt(persona, archetype, element);
 
-  // Step 6: Get symbol content for display
+  // Step 6: Build prompt for "Your Signal" paragraph
+  const signalPrompt = buildSignalPrompt(persona, archetype, element, userProblem);
+
+  // Step 7: Get symbol content for display
   const symbolCtx = AVATAR_SCHEMA.symbolContent[archetype];
 
   return {
     avatar: {
       title: title,
-      identity: content.identity,
-      strength: content.strength,
+      signal: null, // Will be populated by OpenAI API call
       symbol: symbolCtx.symbol,
       symbolMeaning: symbolCtx.meaning,
-      ai_unlock: null, // Will be populated by Gemini API call
+      ai_unlock: null, // Will be populated by OpenAI API call
       image: null // Will be populated by Gemini image generation
     },
     meta: {
@@ -766,6 +803,7 @@ function generateAvatarOutput(persona, style, posture, element, answers = {}, us
       posture: posture,
       element: element,
       archetype: archetype,
+      signalPrompt: signalPrompt,
       aiUnlockPrompt: aiUnlockPrompt,
       imagePrompt: imagePrompt
     }
@@ -776,6 +814,7 @@ function generateAvatarOutput(persona, style, posture, element, answers = {}, us
 if (typeof window !== 'undefined') {
   window.AVATAR_SCHEMA = AVATAR_SCHEMA;
   window.generateAvatarOutput = generateAvatarOutput;
+  window.buildSignalPrompt = buildSignalPrompt;
   window.buildAIUnlockPrompt = buildAIUnlockPrompt;
   window.buildImagePrompt = buildImagePrompt;
   window.getStaticAIUnlock = getStaticAIUnlock;

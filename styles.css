@@ -320,14 +320,12 @@ body {
   animation: fadeInUp 0.5s ease-out 0.4s both;
 }
 
-.avatar-identity,
-.avatar-strength,
+.avatar-signal,
 .avatar-unlock {
   margin-bottom: 1.5rem;
 }
 
-.avatar-identity h3,
-.avatar-strength h3,
+.avatar-signal h3,
 .avatar-unlock h3 {
   font-family: 'Space Grotesk', sans-serif;
   font-size: 0.875rem;
@@ -338,11 +336,10 @@ body {
   letter-spacing: 0.05em;
 }
 
-.avatar-identity p,
-.avatar-strength p {
+.avatar-signal p {
   font-size: 1.0625rem;
   color: var(--text-secondary);
-  line-height: 1.7;
+  line-height: 1.8;
 }
 
 .avatar-unlock p {
@@ -355,6 +352,7 @@ body {
   border-left: 3px solid var(--bg-gradient-start);
 }
 
+.avatar-signal.hidden,
 .avatar-unlock.hidden {
   display: none;
 }
