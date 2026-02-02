@@ -1,0 +1,9 @@
+# Local Netlify folder
+.netlify
+
+# Environment files with secrets
+.env
+temp-env
+
+# Local dev server (contains hardcoded secrets)
+server.js

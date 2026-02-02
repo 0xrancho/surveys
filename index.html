@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The AI Amplifier Assessment</title>
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ai-amplifier-assessment.netlify.app/">
+  <meta property="og:title" content="The AI Amplifier Assessment">
+  <meta property="og:description" content="Discover your AI Archetype and get a personalized unlock for your next AI project.">
+  <meta property="og:image" content="https://ai-amplifier-assessment.netlify.app/og-image.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://ai-amplifier-assessment.netlify.app/">
+  <meta name="twitter:title" content="The AI Amplifier Assessment">
+  <meta name="twitter:description" content="Discover your AI Archetype and get a personalized unlock for your next AI project.">
+  <meta name="twitter:image" content="https://ai-amplifier-assessment.netlify.app/og-image.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/og-image.png">
+  <link rel="stylesheet" href="styles.css?v=6">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="survey-container">
+    <!-- Header -->
+    <header class="survey-header">
+      <div class="workshop-badge">AI Amplifier Assessment</div>
+      <h1 class="survey-title">The AI Amplifier Assessment</h1>
+      <p class="survey-subtitle">Discover how knowing your AI Archetype can make you more you.</p>
+    </header>
+
+    <!-- Intro Section - Email/Name Capture -->
+    <section class="intro-section" id="introSection">
+      <div class="intro-card">
+        <div class="intro-icon">🎯</div>
+        <h2>Ready to discover your AI Archetype?</h2>
+        <p>Take 2 minutes to discover how AI can amplify what makes you uniquely effective—and get personalized recommendations for your next steps.</p>
+
+        <form class="intro-form" id="introForm">
+          <div class="form-group">
+            <label for="userName">Your name</label>
+            <input type="text" id="userName" name="name" placeholder="e.g., Sarah Chen" required>
+          </div>
+          <div class="form-group">
+            <label for="userEmail">Your email</label>
+            <input type="email" id="userEmail" name="email" placeholder="e.g., sarah@company.com" required>
+          </div>
+          <button type="submit" class="start-btn">
+            Discover My AI Avatar →
+          </button>
+        </form>
+
+        <p class="privacy-note">We'll only use this to send you your results.</p>
+      </div>
+    </section>
+
+    <!-- Progress Bar -->
+    <div class="progress-container hidden" id="progressContainer">
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+      <span class="progress-text" id="progressText">Question 1 of 5</span>
+    </div>
+
+    <!-- Questions Container -->
+    <main class="questions-container hidden" id="questionsContainer">
+
+      <!-- Q1: What excited you most -->
+      <section class="question-card hidden" id="q1_excited" data-question="q1_excited">
+        <h2 class="question-text">What excites you most about AI?</h2>
+        <div class="options-grid">
+          <button class="option-btn" data-value="practical">
+            <span class="option-icon">💼</span>
+            <span class="option-text">Seeing how AI can solve real business problems</span>
+          </button>
+          <button class="option-btn" data-value="technical">
+            <span class="option-icon">🛠️</span>
+            <span class="option-text">Understanding how to build agents and automations</span>
+          </button>
+          <button class="option-btn" data-value="strategic">
+            <span class="option-icon">🎯</span>
+            <span class="option-text">Thinking about AI's impact on my industry</span>
+          </button>
+          <button class="option-btn" data-value="curious">
+            <span class="option-icon">🔭</span>
+            <span class="option-text">Just learning what's possible with AI today</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Q2: When you imagine using AI -->
+      <section class="question-card hidden" id="q2_imagine" data-question="q2_imagine">
+        <h2 class="question-text">When you imagine using AI at work, what do you see?</h2>
+        <div class="options-grid">
+          <button class="option-btn" data-value="automate">
+            <span class="option-icon">⚡</span>
+            <span class="option-text">Automating the tedious stuff so I can focus on what matters</span>
+          </button>
+          <button class="option-btn" data-value="experiment">
+            <span class="option-icon">🧪</span>
+            <span class="option-text">Experimenting and discovering what's possible</span>
+          </button>
+          <button class="option-btn" data-value="lead">
+            <span class="option-icon">🏆</span>
+            <span class="option-text">Leading my team into the AI era</span>
+          </button>
+          <button class="option-btn" data-value="build">
+            <span class="option-icon">🔧</span>
+            <span class="option-text">Building custom tools and workflows</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Q3: AI Problem Text Input -->
+      <section class="question-card hidden" id="q3_problem" data-question="q3_problem">
+        <h2 class="question-text">What's one thing AI could solve for you tomorrow if you knew how to build it?</h2>
+        <p class="question-hint">Be as specific or vague as you'd like—there's no wrong answer.</p>
+        <form class="text-input-form" id="problemForm">
+          <textarea
+            id="problemInput"
+            name="problem"
+            placeholder="e.g., Summarize my meeting notes automatically, or help me respond to customer emails faster..."
+            rows="4"
+            required
+          ></textarea>
+          <button type="submit" class="text-submit-btn">Continue →</button>
+        </form>
+      </section>
+
+      <!-- Q4: What would it take -->
+      <section class="question-card hidden" id="q4_makeithappen" data-question="q4_makeithappen">
+        <h2 class="question-text">What would it take to make AI happen in your world?</h2>
+        <div class="options-grid">
+          <button class="option-btn" data-value="my_call" data-next="q5_scope">
+            <span class="option-icon">🚀</span>
+            <span class="option-text">My decision and some budget—I can make it happen</span>
+          </button>
+          <button class="option-btn" data-value="convince" data-next="q5_scope">
+            <span class="option-icon">🏆</span>
+            <span class="option-text">I'd need to build the case and get buy-in</span>
+          </button>
+          <button class="option-btn" data-value="diy" data-next="q5_learn">
+            <span class="option-icon">🛠️</span>
+            <span class="option-text">I'd figure it out myself with the right resources</span>
+          </button>
+          <button class="option-btn" data-value="not_now" data-next="q5_learn">
+            <span class="option-icon">⏳</span>
+            <span class="option-text">Not sure it's the right time for me</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Q5a: Scope (shown if my_call or convince) -->
+      <section class="question-card hidden" id="q5_scope" data-question="q5_scope">
+        <h2 class="question-text">If you were to go deeper, what would be most valuable?</h2>
+        <div class="options-grid">
+          <button class="option-btn" data-value="deepdive">
+            <span class="option-icon">🔬</span>
+            <span class="option-text">A focused session on my specific use case</span>
+          </button>
+          <button class="option-btn" data-value="audit">
+            <span class="option-icon">📋</span>
+            <span class="option-text">An assessment of what's possible with my data/systems</span>
+          </button>
+          <button class="option-btn" data-value="strategy">
+            <span class="option-icon">🗺️</span>
+            <span class="option-text">A roadmap for AI across my team or org</span>
+          </button>
+          <button class="option-btn" data-value="build">
+            <span class="option-icon">🏗️</span>
+            <span class="option-text">Someone to build a custom solution with me</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Q5b: Learn (shown if diy or not_now) -->
+      <section class="question-card hidden" id="q5_learn" data-question="q5_learn">
+        <h2 class="question-text">How do you prefer to keep learning?</h2>
+        <div class="options-grid">
+          <button class="option-btn" data-value="community">
+            <span class="option-icon">👥</span>
+            <span class="option-text">Joining a community of other learners</span>
+          </button>
+          <button class="option-btn" data-value="resources">
+            <span class="option-icon">📚</span>
+            <span class="option-text">Self-paced tutorials and documentation</span>
+          </button>
+          <button class="option-btn" data-value="tinker">
+            <span class="option-icon">🔧</span>
+            <span class="option-text">Just tinkering on my own projects</span>
+          </button>
+          <button class="option-btn" data-value="wait">
+            <span class="option-icon">🔄</span>
+            <span class="option-text">I'll circle back when the time is right</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Q6: Style -->
+      <section class="question-card hidden" id="q6_style" data-question="q6_style">
+        <h2 class="question-text">When the path forward with AI is unclear, what do you reach for first?</h2>
+        <div class="options-grid">
+          <button class="option-btn option-with-subtext" data-value="analytical">
+            <span class="option-icon">📊</span>
+            <div class="option-content">
+              <span class="option-text">I need more data, context, or analysis before I commit.</span>
+              <span class="option-subtext">"I was there three thousand years ago..."</span>
+            </div>
+          </button>
+          <button class="option-btn option-with-subtext" data-value="relational">
+            <span class="option-icon">🤝</span>
+            <div class="option-content">
+              <span class="option-text">I talk to someone I trust.</span>
+              <span class="option-subtext">"I can't carry it for you, but I can carry you."</span>
+            </div>
+          </button>
+          <button class="option-btn option-with-subtext" data-value="kinetic">
+            <span class="option-icon">⚡</span>
+            <div class="option-content">
+              <span class="option-text">I start moving and adjust as I go.</span>
+              <span class="option-subtext">"A cage. To stay behind bars until use and old age accept them."</span>
+            </div>
+          </button>
+          <button class="option-btn option-with-subtext" data-value="foundational">
+            <span class="option-icon">🏛️</span>
+            <div class="option-content">
+              <span class="option-text">I go back to first principles.</span>
+              <span class="option-subtext">"I would not take this thing, if it lay by the highway."</span>
+            </div>
+          </button>
+          <button class="option-btn option-with-subtext" data-value="intuitive">
+            <span class="option-icon">✨</span>
+            <div class="option-content">
+              <span class="option-text">I look for a pattern I've seen before.</span>
+              <span class="option-subtext">"Things that were... things that are... and some things that have not yet come to pass."</span>
+            </div>
+          </button>
+        </div>
+      </section>
+
+      <!-- Q7: Posture -->
+      <section class="question-card hidden" id="q7_posture" data-question="q7_posture">
+        <h2 class="question-text">When AI changes how your work gets done, your instinct is to...</h2>
+        <div class="options-grid">
+          <button class="option-btn" data-value="reclaim">
+            <span class="option-icon">🛡️</span>
+            <span class="option-text">Protect what matters, adapt selectively</span>
+          </button>
+          <button class="option-btn" data-value="rebuild">
+            <span class="option-icon">🏗️</span>
+            <span class="option-text">Tear down and construct anew</span>
+          </button>
+          <button class="option-btn" data-value="rewild">
+            <span class="option-icon">🌿</span>
+            <span class="option-text">Return to something older or truer</span>
+          </button>
+          <button class="option-btn" data-value="remix">
+            <span class="option-icon">🎛️</span>
+            <span class="option-text">Synthesize old and new into something unprecedented</span>
+          </button>
+          <button class="option-btn" data-value="relay">
+            <span class="option-icon">🔦</span>
+            <span class="option-text">Pass the torch, enable others</span>
+          </button>
+          <button class="option-btn" data-value="recon">
+            <span class="option-icon">🔭</span>
+            <span class="option-text">Scout ahead, report back</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Q8: Element (visual grid) -->
+      <section class="question-card hidden" id="q8_element" data-question="q8_element">
+        <h2 class="question-text">Choose an element.</h2>
+        <div class="element-grid">
+          <button class="element-btn" data-value="earth" style="--element-color: #8B7355;">
+            <span class="element-icon">🌍</span>
+            <span class="element-name">Earth</span>
+          </button>
+          <button class="element-btn" data-value="water" style="--element-color: #4A90D9;">
+            <span class="element-icon">💧</span>
+            <span class="element-name">Water</span>
+          </button>
+          <button class="element-btn" data-value="fire" style="--element-color: #FF6B35;">
+            <span class="element-icon">🔥</span>
+            <span class="element-name">Fire</span>
+          </button>
+          <button class="element-btn" data-value="air" style="--element-color: #87CEEB;">
+            <span class="element-icon">💨</span>
+            <span class="element-name">Air</span>
+          </button>
+          <button class="element-btn" data-value="light" style="--element-color: #FFD700;">
+            <span class="element-icon">✨</span>
+            <span class="element-name">Light</span>
+          </button>
+          <button class="element-btn" data-value="space" style="--element-color: #1a1a2e;">
+            <span class="element-icon">🌌</span>
+            <span class="element-name">Space</span>
+          </button>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Loading Section -->
+    <section class="loading-section hidden" id="loadingSection">
+      <div class="loading-content">
+        <div class="loading-spinner"></div>
+        <h2 class="loading-title">Generating your AI Avatar...</h2>
+        <p class="loading-subtitle">Creating your personalized insights</p>
+      </div>
+    </section>
+
+    <!-- Result Section -->
+    <section class="result-section hidden" id="resultSection">
+      <div class="result-reveal">
+        <div class="avatar-image" id="avatarImage">
+          <!-- Avatar image will be inserted here -->
+        </div>
+        <div class="avatar-emoji" id="avatarEmoji"></div>
+        <h2 class="avatar-title" id="avatarTitle"></h2>
+      </div>
+
+      <div class="avatar-details">
+        <div class="avatar-identity">
+          <h3>Your Identity</h3>
+          <p id="avatarIdentity"></p>
+        </div>
+
+        <div class="avatar-strength">
+          <h3>Your Strength</h3>
+          <p id="avatarStrength"></p>
+        </div>
+
+        <div class="avatar-unlock hidden" id="avatarUnlockSection">
+          <h3>Your AI Unlock</h3>
+          <p id="avatarUnlock"></p>
+        </div>
+      </div>
+
+      <div class="cta-section" id="ctaSection">
+        <h3 class="cta-headline" id="ctaHeadline"></h3>
+        <p class="cta-body" id="ctaBody"></p>
+
+        <div class="cta-buttons">
+          <a href="#" class="cta-primary" id="ctaPrimary"></a>
+          <a href="#" class="cta-secondary" id="ctaSecondary"></a>
+        </div>
+      </div>
+
+      <!-- Service tiers (shown for budget-ready leads) -->
+      <div class="service-tiers hidden" id="serviceTiers">
+        <h3>Ways we can work together:</h3>
+        <div class="tiers-grid" id="tiersGrid">
+          <!-- Tiers will be inserted here -->
+        </div>
+      </div>
+
+      <div class="share-section">
+        <p>Share your AI Avatar:</p>
+        <div class="share-buttons">
+          <button class="share-btn" id="shareTwitter">Twitter</button>
+          <button class="share-btn" id="shareLinkedIn">LinkedIn</button>
+          <button class="share-btn" id="copyLink">Copy Link</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="survey-footer">
+      <p>Thank you for taking the AI Amplifier Assessment!</p>
+    </footer>
+
+    <!-- Resource Request Modal -->
+    <div class="modal-overlay hidden" id="resourceModal">
+      <div class="modal-content">
+        <button class="modal-close" id="modalClose">&times;</button>
+        <h3>Request Resources</h3>
+        <p>Select the resources you'd like me to send you:</p>
+        <form id="resourceForm">
+          <div class="resource-options" id="resourceOptions">
+            <!-- Options populated by JS -->
+          </div>
+          <button type="submit" class="modal-submit">Send My Resources</button>
+        </form>
+        <div class="modal-success hidden" id="modalSuccess">
+          <div class="success-icon">✓</div>
+          <p>Got it! I'll send those your way soon.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="avatar-schema.js?v=1"></script>
+  <script src="survey.js?v=10"></script>
+</body>
+</html>

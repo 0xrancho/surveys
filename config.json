@@ -1,0 +1,341 @@
+{
+  "survey": {
+    "title": "The AI Amplifier Assessment",
+    "subtitle": "Discover how knowing your AI Archetype can make you more you.",
+    "campaign": "AI Amplifier Assessment"
+  },
+  "avatars": {
+    "catalyst": {
+      "id": "catalyst",
+      "name": "The Catalyst",
+      "tagline": "Ready to ignite change",
+      "emoji": "🚀",
+      "description": "You don't just see the potential—you're ready to act on it. You have a clear vision, the authority to make it happen, and you're looking for the right partner to accelerate your AI journey.",
+      "traits": [
+        "Action-oriented decision maker",
+        "Clear on what you want to solve",
+        "Ready to invest in the right solution",
+        "Values speed and results"
+      ],
+      "leadType": "hot"
+    },
+    "champion": {
+      "id": "champion",
+      "name": "The Champion",
+      "tagline": "Building the case for change",
+      "emoji": "🏆",
+      "description": "You see the opportunity and you're ready to advocate for it. You understand that bringing AI to your team requires buy-in, and you're prepared to make the case to leadership.",
+      "traits": [
+        "Influential within your organization",
+        "Skilled at building consensus",
+        "Thinks about ROI and stakeholder value",
+        "Ready to pilot and prove the concept"
+      ],
+      "leadType": "warm"
+    },
+    "strategist": {
+      "id": "strategist",
+      "name": "The Strategist",
+      "tagline": "Playing the long game",
+      "emoji": "🎯",
+      "description": "You're thinking bigger than a single use case. You see how AI could transform your entire organization and you're mapping out the journey from quick wins to lasting competitive advantage.",
+      "traits": [
+        "Big-picture thinker",
+        "Focused on organizational transformation",
+        "Plans for scale and sustainability",
+        "Connects AI to business strategy"
+      ],
+      "leadType": "enterprise"
+    },
+    "builder": {
+      "id": "builder",
+      "name": "The Builder",
+      "tagline": "Hands-on and hungry to create",
+      "emoji": "🛠️",
+      "description": "You want to get your hands dirty. Whether it's learning to build agents yourself or architecting complex solutions, you're drawn to the technical depth and the craft of building with AI.",
+      "traits": [
+        "Technically curious",
+        "Prefers building to buying",
+        "Interested in how things work under the hood",
+        "Comfortable experimenting"
+      ],
+      "leadType": "technical"
+    },
+    "explorer": {
+      "id": "explorer",
+      "name": "The Explorer",
+      "tagline": "Curious and just getting started",
+      "emoji": "🔭",
+      "description": "You're intrigued by what's possible and want to learn more. You're building your AI literacy and exploring how it might fit into your world—no rush, just genuine curiosity.",
+      "traits": [
+        "Open-minded learner",
+        "Values understanding before committing",
+        "Gathering information and inspiration",
+        "Enjoys the discovery process"
+      ],
+      "leadType": "nurture"
+    }
+  },
+  "questions": [
+    {
+      "id": "q1_excited",
+      "text": "What excites you most about AI?",
+      "type": "single",
+      "required": true,
+      "options": [
+        { "id": "practical", "text": "Seeing how AI can solve real business problems", "icon": "💼" },
+        { "id": "technical", "text": "Understanding how to build agents and automations", "icon": "🛠️" },
+        { "id": "strategic", "text": "Thinking about AI's impact on my industry", "icon": "🎯" },
+        { "id": "curious", "text": "Just learning what's possible with AI today", "icon": "🔭" }
+      ]
+    },
+    {
+      "id": "q2_imagine",
+      "text": "When you imagine using AI at work, what do you see?",
+      "type": "single",
+      "required": true,
+      "options": [
+        { "id": "automate", "text": "Automating the tedious stuff so I can focus on what matters", "icon": "⚡" },
+        { "id": "experiment", "text": "Experimenting and discovering what's possible", "icon": "🧪" },
+        { "id": "lead", "text": "Leading my team into the AI era", "icon": "🏆" },
+        { "id": "build", "text": "Building custom tools and workflows", "icon": "🔧" }
+      ]
+    },
+    {
+      "id": "q3_magicwand",
+      "text": "If AI could solve one thing for you tomorrow, how clear is that picture?",
+      "type": "single",
+      "required": true,
+      "options": [
+        { "id": "crystal", "text": "Crystal clear—I know exactly what I'd pick", "icon": "💎" },
+        { "id": "few_ideas", "text": "A few things come to mind", "icon": "💡" },
+        { "id": "need_think", "text": "I'd need to think about it more", "icon": "🤔" },
+        { "id": "no_idea", "text": "Honestly not sure yet", "icon": "🌫️" }
+      ]
+    },
+    {
+      "id": "q4_makeithappen",
+      "text": "What would it take to make AI happen in your world?",
+      "type": "single",
+      "required": true,
+      "options": [
+        { "id": "my_call", "text": "My decision and some budget—I can make it happen", "icon": "🚀" },
+        { "id": "convince", "text": "I'd need to build the case and get buy-in", "icon": "🏆" },
+        { "id": "diy", "text": "I'd figure it out myself with the right resources", "icon": "🛠️" },
+        { "id": "not_now", "text": "Not sure it's the right time for me", "icon": "⏳" }
+      ]
+    },
+    {
+      "id": "q5_scope",
+      "text": "If you were to go deeper, what would be most valuable?",
+      "type": "single",
+      "required": true,
+      "condition": { "question": "q4_makeithappen", "answers": ["my_call", "convince"] },
+      "options": [
+        { "id": "deepdive", "text": "A focused session on my specific use case", "icon": "🔬" },
+        { "id": "audit", "text": "An assessment of what's possible with my data/systems", "icon": "📋" },
+        { "id": "strategy", "text": "A roadmap for AI across my team or org", "icon": "🗺️" },
+        { "id": "build", "text": "Someone to build a custom solution with me", "icon": "🏗️" }
+      ]
+    },
+    {
+      "id": "q5_learn",
+      "text": "How do you prefer to keep learning?",
+      "type": "single",
+      "required": true,
+      "condition": { "question": "q4_makeithappen", "answers": ["diy", "not_now"] },
+      "options": [
+        { "id": "community", "text": "Joining a community of other learners", "icon": "👥" },
+        { "id": "resources", "text": "Self-paced tutorials and documentation", "icon": "📚" },
+        { "id": "tinker", "text": "Just tinkering on my own projects", "icon": "🔧" },
+        { "id": "wait", "text": "I'll circle back when the time is right", "icon": "🔄" }
+      ]
+    },
+    {
+      "id": "q6_style",
+      "text": "When the path forward with AI is unclear, what do you reach for first?",
+      "type": "single",
+      "required": true,
+      "options": [
+        { "id": "analytical", "text": "I need more data, context, or analysis before I commit.", "subtext": "\"I was there three thousand years ago...\"", "icon": "📊" },
+        { "id": "relational", "text": "I talk to someone I trust.", "subtext": "\"I can't carry it for you, but I can carry you.\"", "icon": "🤝" },
+        { "id": "kinetic", "text": "I start moving and adjust as I go.", "subtext": "\"A cage. To stay behind bars until use and old age accept them.\"", "icon": "⚡" },
+        { "id": "foundational", "text": "I go back to first principles.", "subtext": "\"I would not take this thing, if it lay by the highway.\"", "icon": "🏛️" },
+        { "id": "intuitive", "text": "I look for a pattern I've seen before.", "subtext": "\"Things that were... things that are... and some things that have not yet come to pass.\"", "icon": "✨" }
+      ]
+    },
+    {
+      "id": "q7_posture",
+      "text": "When AI changes how your work gets done, your instinct is to...",
+      "type": "single",
+      "required": true,
+      "options": [
+        { "id": "reclaim", "text": "Protect what matters, adapt selectively", "icon": "🛡️" },
+        { "id": "rebuild", "text": "Tear down and construct anew", "icon": "🏗️" },
+        { "id": "rewild", "text": "Return to something older or truer", "icon": "🌿" },
+        { "id": "remix", "text": "Synthesize old and new into something unprecedented", "icon": "🎛️" },
+        { "id": "relay", "text": "Pass the torch, enable others", "icon": "🔦" },
+        { "id": "recon", "text": "Scout ahead, report back", "icon": "🔭" }
+      ]
+    },
+    {
+      "id": "q8_element",
+      "text": "Choose an element.",
+      "type": "single",
+      "required": true,
+      "options": [
+        { "id": "earth", "text": "Earth", "color": "#8B7355", "icon": "🌍" },
+        { "id": "water", "text": "Water", "color": "#4A90D9", "icon": "💧" },
+        { "id": "fire", "text": "Fire", "color": "#FF6B35", "icon": "🔥" },
+        { "id": "air", "text": "Air", "color": "#87CEEB", "icon": "💨" },
+        { "id": "light", "text": "Light", "color": "#FFD700", "icon": "✨" },
+        { "id": "space", "text": "Space", "color": "#1a1a2e", "icon": "🌌" }
+      ]
+    }
+  ],
+  "scoring": {
+    "description": "Points determine avatar. Designed so paths lead to distinct outcomes.",
+    "tiebreaker": ["catalyst", "champion", "strategist", "builder", "explorer"],
+    "rules": {
+      "q1_excited": {
+        "practical":  { "catalyst": 2, "champion": 2, "strategist": 1, "builder": 0, "explorer": 0 },
+        "technical":  { "catalyst": 0, "champion": 0, "strategist": 0, "builder": 3, "explorer": 1 },
+        "strategic":  { "catalyst": 1, "champion": 1, "strategist": 3, "builder": 0, "explorer": 0 },
+        "curious":    { "catalyst": 0, "champion": 0, "strategist": 0, "builder": 1, "explorer": 3 }
+      },
+      "q2_imagine": {
+        "automate":   { "catalyst": 3, "champion": 1, "strategist": 0, "builder": 1, "explorer": 0 },
+        "experiment": { "catalyst": 0, "champion": 0, "strategist": 0, "builder": 2, "explorer": 3 },
+        "lead":       { "catalyst": 1, "champion": 3, "strategist": 2, "builder": 0, "explorer": 0 },
+        "build":      { "catalyst": 1, "champion": 0, "strategist": 0, "builder": 3, "explorer": 0 }
+      },
+      "q3_magicwand": {
+        "crystal":    { "catalyst": 3, "champion": 2, "strategist": 1, "builder": 1, "explorer": 0 },
+        "few_ideas":  { "catalyst": 1, "champion": 2, "strategist": 2, "builder": 1, "explorer": 1 },
+        "need_think": { "catalyst": 0, "champion": 1, "strategist": 1, "builder": 1, "explorer": 2 },
+        "no_idea":    { "catalyst": 0, "champion": 0, "strategist": 0, "builder": 0, "explorer": 3 }
+      },
+      "q4_makeithappen": {
+        "my_call":    { "catalyst": 5, "champion": 0, "strategist": 2, "builder": 0, "explorer": 0 },
+        "convince":   { "catalyst": 0, "champion": 5, "strategist": 2, "builder": 0, "explorer": 0 },
+        "diy":        { "catalyst": 0, "champion": 0, "strategist": 0, "builder": 5, "explorer": 1 },
+        "not_now":    { "catalyst": 0, "champion": 0, "strategist": 0, "builder": 0, "explorer": 5 }
+      },
+      "q5_scope": {
+        "deepdive":   { "catalyst": 3, "champion": 2, "strategist": 0, "builder": 0, "explorer": 0 },
+        "audit":      { "catalyst": 2, "champion": 2, "strategist": 2, "builder": 0, "explorer": 0 },
+        "strategy":   { "catalyst": 1, "champion": 2, "strategist": 4, "builder": 0, "explorer": 0 },
+        "build":      { "catalyst": 2, "champion": 1, "strategist": 1, "builder": 2, "explorer": 0 }
+      },
+      "q5_learn": {
+        "community":  { "catalyst": 0, "champion": 0, "strategist": 0, "builder": 1, "explorer": 2 },
+        "resources":  { "catalyst": 0, "champion": 0, "strategist": 0, "builder": 2, "explorer": 2 },
+        "tinker":     { "catalyst": 0, "champion": 0, "strategist": 0, "builder": 3, "explorer": 1 },
+        "wait":       { "catalyst": 0, "champion": 0, "strategist": 0, "builder": 0, "explorer": 3 }
+      }
+    }
+  },
+  "cta": {
+    "calendarLink": "https://calendly.com/joelaustin",
+    "siteLink": "https://joelaustin.xyz",
+    "resourceOptions": [
+      { "id": "business_case", "label": "AI Business Case Template" },
+      { "id": "readiness_framework", "label": "AI Readiness Framework" },
+      { "id": "workshop_materials", "label": "Workshop Slides & Recording" }
+    ],
+    "byAvatar": {
+      "catalyst": {
+        "headline": "Let's make it happen",
+        "body": "You've got the vision and the authority. Let's scope your first AI project and get it running. I'll bring the expertise—you bring the problem to solve.",
+        "primaryAction": {
+          "text": "Book a Discovery Call",
+          "type": "calendar",
+          "url": "calendarLink"
+        },
+        "secondaryAction": {
+          "text": "Request Resources",
+          "type": "modal",
+          "modalId": "resourceModal"
+        },
+        "showServiceTiers": true
+      },
+      "champion": {
+        "headline": "Let's build your case",
+        "body": "You see the opportunity—now you need to bring others along. I can help you build a compelling business case and pilot that proves the value.",
+        "primaryAction": {
+          "text": "Book a Strategy Call",
+          "type": "calendar",
+          "url": "calendarLink"
+        },
+        "secondaryAction": {
+          "text": "Request Resources",
+          "type": "modal",
+          "modalId": "resourceModal"
+        },
+        "showServiceTiers": true
+      },
+      "strategist": {
+        "headline": "Let's map your AI transformation",
+        "body": "You're thinking at the organizational level—that's where the real value is. Let's create a strategic roadmap from quick wins to lasting competitive advantage.",
+        "primaryAction": {
+          "text": "Schedule a Strategy Session",
+          "type": "calendar",
+          "url": "calendarLink"
+        },
+        "secondaryAction": {
+          "text": "Request Resources",
+          "type": "modal",
+          "modalId": "resourceModal"
+        },
+        "showServiceTiers": true
+      },
+      "builder": {
+        "headline": "Thanks for taking the Assessment!",
+        "body": "I'm excited to follow your journey. Keep me posted on what you're building—feel free to reach out and connect if I can help.",
+        "primaryAction": {
+          "text": "Connect at joelaustin.xyz",
+          "type": "link",
+          "url": "siteLink"
+        },
+        "secondaryAction": null,
+        "showServiceTiers": false
+      },
+      "explorer": {
+        "headline": "Thanks for taking the Assessment!",
+        "body": "Keep an eye on my site for inspiration as you continue exploring AI. When you're ready to go deeper—I'll be here.",
+        "primaryAction": {
+          "text": "Visit joelaustin.xyz",
+          "type": "link",
+          "url": "siteLink"
+        },
+        "secondaryAction": null,
+        "showServiceTiers": false
+      }
+    },
+    "serviceTiers": {
+      "note": "Displayed to catalyst, champion, strategist avatars",
+      "tiers": [
+        {
+          "name": "Deep-Dive Session",
+          "description": "2-hour focused session on your specific use case",
+          "icon": "🔬"
+        },
+        {
+          "name": "AI Readiness Audit",
+          "description": "Assessment of your data, systems, and opportunities",
+          "icon": "📋"
+        },
+        {
+          "name": "Enablement Strategy",
+          "description": "Custom AI roadmap for your organization",
+          "icon": "🗺️"
+        },
+        {
+          "name": "Solution Development",
+          "description": "Full custom AI/agent build",
+          "icon": "🏗️"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,4 @@
+# Ignore files with secrets
+.env
+temp-env
+server.js
