@@ -1,8 +1,9 @@
 {
   "survey": {
-    "title": "The AI Amplifier Assessment",
-    "subtitle": "Discover how knowing your AI Archetype can make you more you.",
-    "campaign": "AI Amplifier Assessment"
+    "title": "AI Archetype",
+    "tagline": "Find your signal.",
+    "subtitle": "A 3-minute assessment to discover how AI can amplify who you are—and what you should build next.",
+    "campaign": "AI Archetype"
   },
   "avatars": {
     "catalyst": {

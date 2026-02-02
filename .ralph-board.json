@@ -1,0 +1,119 @@
+{
+  "project": "ai-workshop-survey",
+  "description": "Post AI-Workshop Engagement Survey with AI Avatar personas",
+  "status": "in_progress",
+  "phases": [
+    {
+      "id": "content-design",
+      "name": "Content & Design",
+      "blocks": [
+        {
+          "id": "avatar-definitions",
+          "description": "Define 5 AI Avatar personas with names, descriptions, and illustration briefs",
+          "status": "complete",
+          "dependencies": [],
+          "promise": "5 complete avatar definitions in config.json with name, tagline, description, traits, and visual brief"
+        },
+        {
+          "id": "question-content",
+          "description": "Finalize all question text and answer options",
+          "status": "complete",
+          "dependencies": [],
+          "promise": "All 7 questions with exact wording and answer options in config.json"
+        },
+        {
+          "id": "scoring-matrix",
+          "description": "Define scoring rules for avatar assignment",
+          "status": "complete",
+          "dependencies": ["avatar-definitions", "question-content"],
+          "promise": "Complete scoring matrix mapping each answer to avatar points"
+        },
+        {
+          "id": "cta-content",
+          "description": "Write CTAs for each avatar type",
+          "status": "complete",
+          "dependencies": ["avatar-definitions"],
+          "promise": "Personalized CTA text and actions for each avatar type"
+        }
+      ]
+    },
+    {
+      "id": "implementation",
+      "name": "Implementation",
+      "blocks": [
+        {
+          "id": "html-structure",
+          "description": "Build survey HTML with question sections",
+          "status": "complete",
+          "dependencies": ["question-content"],
+          "promise": "index.html with all question sections, progress indicator, and result display"
+        },
+        {
+          "id": "css-styling",
+          "description": "Playful/creative visual design",
+          "status": "complete",
+          "dependencies": ["html-structure"],
+          "promise": "styles.css with playful theme, animations, responsive design"
+        },
+        {
+          "id": "js-logic",
+          "description": "Question flow, branching, scoring, avatar reveal",
+          "status": "complete",
+          "dependencies": ["html-structure", "scoring-matrix"],
+          "promise": "survey.js handles flow, calculates scores, reveals avatar with animation"
+        },
+        {
+          "id": "data-submission",
+          "description": "Airtable/webhook integration",
+          "status": "pending",
+          "dependencies": ["js-logic"],
+          "promise": "Responses submitted to Airtable with email, name, session_id, answers, avatar"
+        }
+      ]
+    },
+    {
+      "id": "assets",
+      "name": "Assets",
+      "blocks": [
+        {
+          "id": "avatar-illustrations",
+          "description": "Create/source 5 avatar images",
+          "status": "pending",
+          "dependencies": ["avatar-definitions"],
+          "promise": "5 SVG illustrations in avatars/ directory"
+        },
+        {
+          "id": "animations",
+          "description": "Add reveal animations for avatar result",
+          "status": "pending",
+          "dependencies": ["css-styling", "avatar-illustrations"],
+          "promise": "Smooth avatar reveal with personality-matched animation"
+        }
+      ]
+    },
+    {
+      "id": "deploy",
+      "name": "Deploy",
+      "blocks": [
+        {
+          "id": "static-hosting",
+          "description": "Deploy to Vercel/Netlify",
+          "status": "pending",
+          "dependencies": ["data-submission", "animations"],
+          "promise": "Live URL serving the survey"
+        },
+        {
+          "id": "email-template",
+          "description": "Create email template with survey link",
+          "status": "pending",
+          "dependencies": ["static-hosting"],
+          "promise": "Email HTML template with personalized survey link"
+        }
+      ]
+    }
+  ],
+  "currentBlock": "data-submission",
+  "completedBlocks": ["avatar-definitions", "question-content", "scoring-matrix", "cta-content", "html-structure", "css-styling", "js-logic"],
+  "created": "2025-01-30",
+  "interview": "../.interview-session.json"
+}

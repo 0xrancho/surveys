@@ -1,0 +1,186 @@
+## Iteration 1 — 2025-01-30
+
+BLOCK: avatar-definitions
+STATUS: complete
+
+COMPLETED:
+- Created config.json with 5 avatar definitions
+- Each avatar has: id, name, tagline, emoji, description, traits, nextStep, leadType, visualBrief
+
+AVATARS DEFINED:
+1. The Curious Explorer (🔭) - nurture lead, warm colors, binoculars/telescope
+2. The Practical Optimizer (⚡) - warm lead, blue/silver, efficiency aesthetic
+3. The Bold Automator (🤖) - hot lead, red/metallic, action-oriented
+4. The Strategic Visionary (🎯) - enterprise lead, purple/gold, leadership pose
+5. The Agent Architect (🏗️) - technical lead, teal/white, builder aesthetic
+
+FILES CREATED:
+- config.json (avatars section complete)
+
+NEXT: question-content (no dependencies, can run in parallel)
+
+---
+
+## Iteration 2 — 2025-01-30
+
+BLOCK: question-content
+STATUS: complete
+
+COMPLETED:
+- Added 8 questions to config.json with full branching logic
+- Q1-Q3: Core questions for all users
+- Q4a/Q4b: Branch based on business case (yes → impact, no → recommend)
+- Q5a/Q5b: Branch based on business case (yes → budget, no → pricing feedback)
+- Q6: Engagement level for budget-ready prospects
+
+QUESTION FLOW:
+Q1 (resonated) → Q2 (prior usage) → Q3 (business case)
+  ├─ YES/IDEAS → Q4a (impact) → Q5a (budget)
+  │                              ├─ YES/COULD → Q6 (engagement) → result
+  │                              └─ NO → result
+  └─ NO → Q4b (recommend) → Q5b (pricing) → result
+
+FILES MODIFIED:
+- config.json (questions section complete)
+
+NEXT: scoring-matrix (depends on avatar-definitions ✓ and question-content ✓)
+
+---
+
+## Iteration 3 — 2025-01-30
+
+BLOCK: scoring-matrix
+STATUS: complete
+
+COMPLETED:
+- Added complete scoring matrix to config.json
+- Each question/answer maps to points for each avatar type
+- Tiebreaker order favors higher-engagement avatars: automator > visionary > architect > optimizer > explorer
+
+SCORING HIGHLIGHTS:
+- Explorer: Rewards basics, no prior usage, no business case, exploring
+- Optimizer: Rewards prompts, regular usage, significant impact, deep-dive
+- Automator: Rewards business apps, has case, game-changing impact, budget ready
+- Visionary: Rewards business apps, game-changing impact, audit/strategy interest
+- Architect: Rewards agents, power user, development interest
+
+FILES MODIFIED:
+- config.json (scoring section complete)
+
+NEXT: cta-content (depends on avatar-definitions ✓)
+
+---
+
+## Iteration 4 — 2025-01-30
+
+BLOCK: cta-content
+STATUS: complete
+
+COMPLETED:
+- Added CTA content for all 5 avatars
+- Each has: headline, body, primaryAction, secondaryAction
+- Hot leads (automator, visionary, architect) have urgencyNote for sales team
+- Added serviceTiers section for budget-ready prospects
+- Placeholder links for calendar and community
+
+CTA SUMMARY:
+- Explorer → Join community (nurture)
+- Optimizer → Book deep-dive session (warm)
+- Automator → Book discovery call (hot - prioritize)
+- Visionary → Schedule strategy session (enterprise)
+- Architect → Book technical deep-dive (technical)
+
+FILES MODIFIED:
+- config.json (cta section complete)
+
+PHASE 1 COMPLETE ✓ All content-design blocks done.
+
+NEXT: html-structure (Phase 2 - Implementation)
+
+---
+
+## Iteration 5 — 2025-01-30
+
+BLOCK: html-structure
+STATUS: complete
+
+COMPLETED:
+- Created index.html with full survey structure
+- Header with workshop badge, title, subtitle
+- Progress bar with dynamic text
+- All 8 question cards with options and data attributes
+- Result section with avatar reveal, traits, CTA, service tiers, share buttons
+- Semantic HTML, accessibility-ready structure
+- Google Fonts (Space Grotesk + Inter) for playful/readable typography
+
+STRUCTURE:
+- survey-header: branding
+- progress-container: visual progress
+- questions-container: 8 question cards (hidden by default except first)
+- result-section: avatar reveal + CTA + share
+- survey-footer: thank you message
+
+FILES CREATED:
+- index.html
+
+NEXT: css-styling
+
+---
+
+## Iteration 6 — 2025-01-30
+
+BLOCK: css-styling
+STATUS: complete
+
+COMPLETED:
+- Created styles.css with full playful/creative theme
+- CSS custom properties for easy theming
+- Gradient background (purple-blue)
+- Card-based UI with rounded corners and shadows
+- Avatar-specific color variables for each persona
+- Smooth animations: slideUp, fadeInUp, bounceIn
+- Responsive design (mobile-first)
+- Accessibility: prefers-reduced-motion support
+
+DESIGN HIGHLIGHTS:
+- Space Grotesk for headings (playful)
+- Inter for body text (readable)
+- Option buttons with hover/selected states
+- Progress bar with fill animation
+- Staggered reveal animations for result
+- Service tiers cards for budget-ready leads
+
+FILES CREATED:
+- styles.css
+
+NEXT: js-logic
+
+---
+
+## Iteration 7 — 2025-01-30
+
+BLOCK: js-logic
+STATUS: complete
+
+COMPLETED:
+- Created survey.js with full question flow logic
+- Loads config.json for avatars, questions, scoring, CTAs
+- Handles branching logic based on answers
+- Applies scoring from config.scoring.rules
+- Calculates winning avatar with tiebreaker logic
+- Populates result section dynamically
+- Shows service tiers for budget-ready leads
+- Share buttons (Twitter, LinkedIn, Copy Link)
+- Parses URL params (email, name, session_id)
+
+FEATURES:
+- State management for answers and scores
+- Dynamic progress bar updates
+- Smooth question transitions
+- Avatar reveal with animated elements
+- Console logging for debugging
+
+FILES CREATED:
+- survey.js
+
+NEXT: data-submission
