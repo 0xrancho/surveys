@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 80" width="200" height="80">
+  <defs>
+    <linearGradient id="smoothGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#CD6839"/>
+      <stop offset="35%" stop-color="#C9A055"/>
+      <stop offset="60%" stop-color="#7DCAD4"/>
+      <stop offset="100%" stop-color="#5C95A5"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Clean infinity/figure-8: one continuous stroke -->
+  <!-- Start bottom-left, loop up-around left, cross middle, loop around right, end at star -->
+  <path d="M25,55
+           C5,40 15,10 45,15
+           C75,20 95,45 100,40
+           C105,35 125,20 155,25
+           C185,30 185,55 160,55
+           C135,55 115,35 100,40
+           C85,45 65,65 35,60"
+        fill="none"
+        stroke="url(#smoothGrad)"
+        stroke-width="9"
+        stroke-linecap="round"/>
+
+  <!-- Star at right end -->
+  <g transform="translate(175, 45)">
+    <path d="M0,-10 L2.5,-2.5 L10,0 L2.5,2.5 L0,10 L-2.5,2.5 L-10,0 L-2.5,-2.5 Z" fill="white" opacity="0.6"/>
+    <path d="M0,-5 L1.2,-1.2 L5,0 L1.2,1.2 L0,5 L-1.2,1.2 L-5,0 L-1.2,-1.2 Z" fill="white"/>
+  </g>
+</svg>

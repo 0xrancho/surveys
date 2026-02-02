@@ -1,21 +1,20 @@
-# AI Archetype - UX Refresh Plan
+# Leading with AI - UX Refresh Plan
 
 ## Brand Identity (Finalized)
 
-- **Name:** AI Archetype
-- **Tagline:** Find your signal.
-- **Sub-header:** A 3-minute assessment to discover how AI can amplify who you are—and what you should build next.
-- **Core Color:** Green (keep)
+- **Name:** Leading with AI
+- **Tagline:** Leading with AI
+- **Sub-header:** A 3-minute assessment to discover how AI can amplify your leadership style—and what you should build next.
+- **Core Color:** Blue
 
 ## Design Inspiration: Firecrawl.dev
 
 Key takeaways:
-- **White/light backgrounds** with colored accents (not full gradient bg)
+- **White/light backgrounds** with blue accents (not full gradient bg)
 - **Generous whitespace** - content breathes
 - **Clear typography hierarchy** - one thing demands attention at a time
-- **Interactive demo feel** - intelligent but approachable
-- **Trust signals** - logos, social proof, without being salesy
-- **Technical credibility** - code snippets, precise language
+- **Clean, minimal** - no trust signals or social proof for now
+- **Icons that shine** - let the UI elements and icons carry the visual interest
 
 ## Current State Issues
 
@@ -30,15 +29,15 @@ Key takeaways:
 
 ## Proposed Visual System
 
-### Color Palette (Green-forward)
+### Color Palette (Blue-forward)
 
 ```css
 :root {
   /* Primary */
-  --green-600: #059669;      /* Primary actions */
-  --green-500: #10B981;      /* Hover states */
-  --green-100: #D1FAE5;      /* Light backgrounds */
-  --green-50: #ECFDF5;       /* Subtle tints */
+  --blue-600: #2563EB;       /* Primary actions */
+  --blue-500: #3B82F6;       /* Hover states */
+  --blue-100: #DBEAFE;       /* Light backgrounds */
+  --blue-50: #EFF6FF;        /* Subtle tints */
 
   /* Neutrals */
   --white: #FFFFFF;
@@ -46,9 +45,6 @@ Key takeaways:
   --gray-100: #F3F4F6;       /* Card backgrounds */
   --gray-600: #4B5563;       /* Body text */
   --gray-900: #111827;       /* Headings */
-
-  /* Accent */
-  --coral-500: #F97316;      /* Secondary accent (optional) */
 }
 ```
 
@@ -69,15 +65,15 @@ Key takeaways:
 ### Layout Changes
 
 #### Header
-- Smaller, refined "AI Archetype" wordmark (no badge bubble)
-- Tagline "Find your signal." as hero text, large
+- Smaller, refined "Leading with AI" wordmark (no badge bubble)
+- Title "Leading with AI" as hero text, large
 - Sub-header below, muted
 
 #### Intro Form
 - White card on light gray background
-- Green CTA button
-- Remove target icon or replace with subtle archetype symbol
-- Trust signal: "Join 500+ leaders who found their signal" (when you have numbers)
+- Blue CTA button
+- Remove target icon or replace with subtle leadership/AI mark
+- No trust signals for now - keep it clean
 
 #### Questions
 - White cards, subtle shadow
@@ -122,17 +118,16 @@ Key takeaways:
 
 ## Total Estimated Time: 8-13 hours
 
-## Design Mockups Needed
+## Screen Flow (Simple Landing Page)
 
-1. **Intro/Landing** - Header + form
-2. **Question State** - Single question with options
-3. **Results** - Full archetype reveal
+1. **Landing/Intro** - Header + form capture
+2. **Question Flow** - Single question per screen with options
+3. **Loading** - Brief processing state
+4. **Results** - AI leadership style reveal
 
 ## Open Questions
 
-- [ ] Logo/wordmark design for "AI Archetype"?
-- [ ] Trust signals - what numbers/logos can we use?
-- [ ] Result sharing - wait for dynamic OG cards or do basic first?
+- [ ] Logo/mark design for "Leading with AI"? (use icon prompt to generate)
 - [ ] Mobile-first or desktop-first for redesign?
 
 ## References
